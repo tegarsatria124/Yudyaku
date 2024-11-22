@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        #lyrics {
+            white-space: pre;
+            overflow: hidden;
+            font-size: 24px;
+            border-right: .15em solid orange;
+            font-family: monospace;
+            margin: 0 auto;
+        }
+        
+        button:hover {
+            background-color: #ec328c;
+            transform: scale(1.3);
+        }
+        
+        button {
+            direction: rtl;
+        }
+        
+        audio {
+            width: 50;
+            height: 50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lyrics"></div>
+    <audio autoplay>
+        <source src="Y2meta.app - Sempurna - Andra And The Backbone (instrumental guitar cover) by Albayments (128 kbps).mp3" type="audio/mpeg">
+        
+    </audio>
+
+    <video autoplay></video>
+    <script>
+        
+        const lyrics = [
+            "Hayyiii Yudyaa Semestaa nya aku!",
+            "Pastii kamuu kaget kaan bukaa link ini, xixixi",
+            "Terimaa kasiiih yaaa udah selaluu ada buat aku",
+            "Akuu bersyukurr banget punya cewek kaya kamu.",
+            "Segalaa rupamu, pantas untuk dii puji,", 
+            "sebagai bidadariku yang cantik sedunia",
+            "Akuu Sayaaangg bangeet saamaa kaamu.🤍🤍🤍"
+
+        ];
+
+       
+        function typeWriter(text, i, callback) {
+            if (i < text.length) {
+                document.getElementById("lyrics").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(function() {
+                    typeWriter(text, i, callback);
+                }, 50);
+            } else {
+                setTimeout(callback, 1000);
+            }
+        }
+
+    
+        function displayLyrics() {
+            let lineIndex = 0;
+
+            function displayLine() {
+                if (lineIndex < lyrics.length) {
+                    document.getElementById("lyrics").innerHTML = "";
+                    typeWriter(lyrics[lineIndex], 0, function() {
+                        lineIndex++;
+                        displayLine();
+                    });
+                }
+            }
+            displayLine();
+        }
+
+        displayLyrics();
+    </script>
+    <center>
+        <br>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="button">
+            <button>
+                <a href="cantiknya.html"> !! ini di pencet yaaaw</a>
+            </button>
+        </div>
+    </center>
+</body>
+
+</html>
